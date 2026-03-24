@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #f8f7f4;
+    color: #1a1a1a;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-neutral-900 text-white px-6 py-3 rounded-xl font-medium tracking-wide hover:bg-neutral-700 active:scale-95 transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-neutral-900 text-neutral-900 px-6 py-3 rounded-xl font-medium tracking-wide hover:bg-neutral-900 hover:text-white active:scale-95 transition-all duration-200 cursor-pointer;
+  }
+
+  .control-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2 block;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-neutral-100 p-5;
+  }
+
+  .color-swatch {
+    @apply w-8 h-8 rounded-full border-2 border-white shadow-md cursor-pointer transition-transform hover:scale-110 active:scale-95;
+  }
+
+  .color-swatch.active {
+    @apply ring-2 ring-offset-2 ring-neutral-900 scale-110;
+  }
+}
+
+/* Fabric canvas wrapper */
+.canvas-container {
+  position: relative !important;
+  margin: 0 auto !important;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+/* Range input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: #e5e7eb;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+/* Select styling */
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px !important;
+}
+
+/* Toast animation */
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.toast-enter {
+  animation: slideIn 0.3s ease forwards;
+}
